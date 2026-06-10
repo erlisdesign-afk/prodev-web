@@ -4,10 +4,10 @@ import { Menu, X } from 'lucide-react';
 import CTAButton from '../ui/CTAButton';
 
 const links = [
-  { label: 'Productos',   href: '#productos' },
-  { label: 'Servicios',   href: '#servicios' },
-  { label: 'Cómo funciona', href: '#proceso' },
-  { label: 'Casos',       href: '#casos' },
+  { label: 'Products',    href: '#productos' },
+  { label: 'Services',    href: '#servicios' },
+  { label: 'How It Works', href: '#proceso' },
+  { label: 'Cases',       href: '#casos' },
 ];
 
 export default function Navbar() {
@@ -37,9 +37,7 @@ export default function Navbar() {
           <a href="#" className="flex items-center gap-3 flex-shrink-0">
             <span className="flex items-center gap-2">
               {/* Logo mark */}
-              <span className="relative w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-DEFAULT to-emerald flex items-center justify-center text-white font-display font-extrabold text-base shadow-glow-indigo">
-                P
-              </span>
+              <img src="/logo-icon.png" alt="ProDev" className="h-8 w-8 object-contain rounded-lg" />
               <span className="font-display font-extrabold text-[1.1rem] tracking-tight text-white">
                 PRODEV
               </span>
@@ -62,7 +60,7 @@ export default function Navbar() {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
             <a href="#contacto" className="text-sm font-body text-gray-mid hover:text-white transition-colors">
-              Contacto
+              Contact
             </a>
             <CTAButton href="#audit" size="sm" variant="emerald">
               Free Audit

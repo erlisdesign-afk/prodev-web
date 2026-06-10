@@ -6,29 +6,29 @@ const steps = [
   {
     number: '01',
     icon: Search,
-    title: 'Audit o Discovery',
-    description: 'Empezamos con 45–60 minutos analizando tu operación o idea. Sin compromiso. Sales con un diagnóstico claro y un plan de acción concreto.',
+    title: 'Audit or Discovery',
+    description: 'We start with 45–60 minutes analyzing your operation or idea. No commitment. You leave with a clear diagnosis and a concrete action plan.',
     color: '#3D20A0',
     colorLight: 'rgba(61,32,160,0.12)',
-    detail: 'Free para automatización — $1.5K para product strategy',
+    detail: 'Free for automation — $1.5K for product strategy',
   },
   {
     number: '02',
     icon: Hammer,
-    title: 'Construimos',
-    description: 'Propuesta de scope fijo, no por horas. Sabes exactamente qué recibes, cuándo y a qué costo. Sin sorpresas de presupuesto a mitad del proyecto.',
+    title: 'We Build',
+    description: 'Fixed-scope proposal, not hourly. You know exactly what you get, when, and at what cost. No budget surprises mid-project.',
     color: '#2DC97E',
     colorLight: 'rgba(45,201,126,0.10)',
-    detail: 'Timeline de 4–12 semanas según el alcance',
+    detail: '4–12 week timeline depending on scope',
   },
   {
     number: '03',
     icon: BarChart2,
-    title: 'Mides el resultado',
-    description: 'Entregamos con métricas de éxito definidas desde el inicio. No cerramos el proyecto hasta que el sistema opera tu negocio correctamente.',
+    title: 'You Measure Results',
+    description: 'We deliver with success metrics defined from day one. We don\'t close the project until the system runs your business correctly.',
     color: '#F0A030',
     colorLight: 'rgba(240,160,48,0.10)',
-    detail: 'Soporte post-lanzamiento incluido',
+    detail: 'Post-launch support included',
   },
 ];
 
@@ -43,7 +43,7 @@ export default function HowItWorksSection() {
             viewport={{ once: true }}
             className="text-sm font-display font-semibold text-amber uppercase tracking-widest mb-4"
           >
-            Proceso
+            Process
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -53,9 +53,9 @@ export default function HowItWorksSection() {
             className="font-display font-extrabold text-white leading-tight"
             style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', letterSpacing: '-0.025em' }}
           >
-            Sin misterio. Sin horas facturables
+            No mystery. No billable hours.
             <br />
-            <span className="text-white/40">sin sorpresas.</span>
+            <span className="text-white/40">No surprises.</span>
           </motion.h2>
         </div>
 
@@ -79,21 +79,16 @@ export default function HowItWorksSection() {
                 className="relative flex flex-col items-start p-7 rounded-2xl bg-bg-card border border-border"
                 style={{ boxShadow: '0 1px 0 rgba(255,255,255,0.03), 0 20px 60px rgba(0,0,0,0.4)' }}
               >
-                {/* Number */}
                 <span className="font-display font-extrabold text-5xl leading-none mb-6 select-none"
                   style={{ color: s.color, opacity: 0.25 }}>
                   {s.number}
                 </span>
-
-                {/* Icon */}
                 <div className="mb-5 w-11 h-11 rounded-xl flex items-center justify-center"
                   style={{ background: s.colorLight, border: `1px solid ${s.color}30` }}>
                   <Icon className="w-5 h-5" style={{ color: s.color }} strokeWidth={1.5} />
                 </div>
-
                 <h3 className="text-lg font-bold font-display text-white mb-2.5">{s.title}</h3>
                 <p className="text-sm font-body text-gray-mid leading-relaxed mb-5 flex-grow">{s.description}</p>
-
                 <span className="text-[11px] font-display font-semibold uppercase tracking-wide px-3 py-1.5 rounded-full"
                   style={{ background: s.colorLight, color: s.color }}>
                   {s.detail}

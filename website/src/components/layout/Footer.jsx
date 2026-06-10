@@ -3,26 +3,26 @@ import { Github, Linkedin, Twitter, ArrowUpRight } from 'lucide-react';
 
 const nav = [
   {
-    heading: 'Productos',
+    heading: 'Products',
     links: [
       { label: 'Evinra', href: '#productos' },
       { label: 'TravelorHub', href: '#productos' },
     ],
   },
   {
-    heading: 'Servicios',
+    heading: 'Services',
     links: [
-      { label: 'SaaS MVP con IA', href: '#servicios' },
+      { label: 'SaaS MVP with AI', href: '#servicios' },
       { label: 'Custom Solutions', href: '#servicios' },
-      { label: 'Automatización', href: '#servicios' },
-      { label: 'Consulting', href: '#servicios' },
+      { label: 'Operations Automation', href: '#servicios' },
+      { label: 'Strategic Consulting', href: '#servicios' },
     ],
   },
   {
-    heading: 'Empresa',
+    heading: 'Company',
     links: [
-      { label: 'Cómo funciona', href: '#proceso' },
-      { label: 'Para quién', href: '#personas' },
+      { label: 'How It Works', href: '#proceso' },
+      { label: 'Who We Build For', href: '#personas' },
       { label: 'Free Automation Audit', href: '#audit' },
     ],
   },
@@ -41,15 +41,13 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-10 mb-14">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <a href="#" className="inline-flex items-center gap-2 mb-5">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-DEFAULT to-indigo-mid flex items-center justify-center">
-                <span className="font-display font-extrabold text-white text-sm leading-none">P</span>
-              </div>
+            <a href="#" className="inline-flex items-center gap-2.5 mb-5">
+              <img src="/logo-icon.png" alt="ProDev" className="h-8 w-8 object-contain rounded-lg" />
               <span className="font-display font-extrabold text-white tracking-tight">PRODEV</span>
             </a>
 
             <p className="font-body text-gray-mid text-sm leading-relaxed max-w-xs mb-6">
-              Convertimos operaciones manuales en activos que escalan solos. Software que cambia cómo funciona tu negocio, no solo cómo se ve.
+              We turn manual operations into assets that scale on their own. Software that changes how your business runs, not just how it looks.
             </p>
 
             <div className="flex items-center gap-3">
@@ -99,17 +97,17 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs font-body text-gray-mid/50">
-            © {new Date().getFullYear()} ProDev Solutions. Todos los derechos reservados.
+            © {new Date().getFullYear()} ProDev Solution LLC. All rights reserved. · Sarasota, FL
           </p>
           <div className="flex items-center gap-5">
-            {['Privacidad', 'Términos'].map((t) => (
+            {['Privacy', 'Terms'].map((t) => (
               <a key={t} href="#" className="text-xs font-body text-gray-mid/50 hover:text-gray-mid transition-colors">
                 {t}
               </a>
             ))}
             <span className="inline-flex items-center gap-1.5 text-xs font-display font-semibold text-emerald">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald animate-pulse" />
-              Aceptando proyectos
+              Accepting projects
             </span>
           </div>
         </div>

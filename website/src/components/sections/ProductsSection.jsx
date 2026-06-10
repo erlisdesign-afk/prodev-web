@@ -8,14 +8,14 @@ const products = [
     name: 'Evinra',
     tagline: 'Event Commerce & Operations Ecosystem',
     description:
-      'Plataforma integral para operadores de eventos. Ticketing, control de accesos, gestión de vendors, POS en tiempo real y reportes post-evento en minutos — todo conectado.',
+      'End-to-end platform for event operators. Ticketing, access control, vendor management, real-time POS, and post-event reports in minutes — all connected.',
     icon: Ticket,
     color: '#3D20A0',
     colorLight: 'rgba(61,32,160,0.12)',
     stats: [
-      { label: 'Tipos de evento', value: 'Ferias, festivales, venues' },
-      { label: 'Módulos integrados', value: '6 en uno' },
-      { label: 'Reportes', value: 'Tiempo real' },
+      { label: 'Event types', value: 'Fairs, festivals, venues' },
+      { label: 'Integrated modules', value: '6 in one' },
+      { label: 'Reports', value: 'Real time' },
     ],
     cta: 'Request Evinra Demo',
     href: '#contacto',
@@ -25,14 +25,14 @@ const products = [
     name: 'TravelorHub',
     tagline: 'Transportation Operations Platform',
     description:
-      'Sistema completo para operadores de transporte turístico. Reservas, asignación de drivers, vouchers, portales de agentes y coordinación de transfers desde un solo dashboard.',
+      'Complete system for tourism transport operators. Bookings, driver assignment, vouchers, agent portals, and transfer coordination — all from one dashboard.',
     icon: Car,
     color: '#2DC97E',
     colorLight: 'rgba(45,201,126,0.10)',
     stats: [
-      { label: 'Implementado en', value: 'HQT Punta Cana' },
-      { label: 'Operaciones', value: '280+ diarias' },
-      { label: 'Integraciones', value: 'WhatsApp + Maps' },
+      { label: 'Deployed at', value: 'HQT Punta Cana' },
+      { label: 'Daily operations', value: '280+' },
+      { label: 'Integrations', value: 'WhatsApp + Maps' },
     ],
     cta: 'Explore TravelorHub',
     href: '#contacto',
@@ -51,7 +51,7 @@ export default function ProductsSection() {
             viewport={{ once: true }}
             className="text-sm font-display font-semibold text-emerald uppercase tracking-widest mb-4"
           >
-            Productos propios
+            Products built by ProDev
           </motion.p>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -61,9 +61,9 @@ export default function ProductsSection() {
             className="font-display font-extrabold text-white mb-4 leading-tight"
             style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', letterSpacing: '-0.025em' }}
           >
-            No hablamos de lo que podemos hacer.
+            We don't talk about what we can build.
             <br />
-            <span className="text-white/40">Ya lo hicimos.</span>
+            <span className="text-white/40">We already built it.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 16 }}
@@ -72,7 +72,7 @@ export default function ProductsSection() {
             transition={{ delay: 0.2 }}
             className="font-body text-gray-mid text-lg max-w-2xl mx-auto"
           >
-            Evinra y TravelorHub son plataformas construidas por ProDev que operan negocios reales hoy. Son la prueba de que sabemos hacer lo que prometemos.
+            Evinra and TravelorHub are platforms built by ProDev that run real businesses today. They are proof we can deliver what we promise.
           </motion.p>
         </div>
 
@@ -95,15 +95,11 @@ export default function ProductsSection() {
                 className="group relative rounded-2xl border border-border bg-bg-card overflow-hidden"
                 style={{ boxShadow: '0 1px 0 rgba(255,255,255,0.03), 0 24px 80px rgba(0,0,0,0.5)' }}
               >
-                {/* Gradient accent bar */}
                 <div className="h-px w-full" style={{ background: `linear-gradient(90deg, transparent, ${p.color}, transparent)` }} />
-
-                {/* Ambient glow */}
                 <div className="absolute top-0 right-0 w-64 h-64 rounded-full pointer-events-none"
                   style={{ background: `radial-gradient(ellipse, ${p.colorLight} 0%, transparent 70%)` }} />
 
                 <div className="relative p-8">
-                  {/* Icon + name */}
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-12 h-12 rounded-xl flex items-center justify-center"
                       style={{ background: p.colorLight, border: `1px solid ${p.color}30` }}>
@@ -115,11 +111,8 @@ export default function ProductsSection() {
                     </div>
                   </div>
 
-                  <p className="font-body text-gray-mid leading-relaxed mb-8">
-                    {p.description}
-                  </p>
+                  <p className="font-body text-gray-mid leading-relaxed mb-8">{p.description}</p>
 
-                  {/* Stats */}
                   <div className="grid grid-cols-3 gap-4 mb-8 p-4 rounded-xl bg-bg border border-border">
                     {p.stats.map((s, i) => (
                       <div key={i} className={`text-center ${i < 2 ? 'border-r border-border' : ''}`}>
@@ -129,7 +122,6 @@ export default function ProductsSection() {
                     ))}
                   </div>
 
-                  {/* CTA */}
                   <a
                     href={p.href}
                     className="inline-flex items-center gap-2 text-sm font-semibold font-display transition-all duration-200 group-hover:gap-3"
@@ -161,10 +153,10 @@ export default function ProductsSection() {
             ))}
           </div>
           <p className="text-sm font-body text-gray-mid text-center sm:text-left">
-            <span className="text-white font-semibold">HQT Punta Cana</span> y <span className="text-white font-semibold">King Boatworks</span> son implementaciones activas — solicita el case study completo.
+            <span className="text-white font-semibold">HQT Punta Cana</span> and <span className="text-white font-semibold">King Boatworks</span> are active implementations — request the full case study.
           </p>
           <a href="#contacto" className="flex-shrink-0 text-sm font-semibold font-display text-indigo-mid hover:text-white flex items-center gap-1.5 transition-colors">
-            Ver casos <ArrowRight className="w-3.5 h-3.5" />
+            See cases <ArrowRight className="w-3.5 h-3.5" />
           </a>
         </motion.div>
       </div>

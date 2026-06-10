@@ -6,37 +6,37 @@ import ServiceCard from '../ui/ServiceCard';
 const services = [
   {
     icon: Bot,
-    title: 'SaaS MVP con IA',
-    description: 'De idea a producto funcional en semanas. Construimos tu SaaS con arquitectura escalable, auth, billing y capas de IA que aportan valor real — no features cosméticos.',
+    title: 'SaaS MVP with AI',
+    description: 'From idea to working product in weeks. We build your SaaS with scalable architecture, auth, billing, and AI layers that deliver real value — not cosmetic features.',
     price: '$8K – $25K',
-    tag: 'Mayor diferenciación',
+    tag: 'Highest differentiation',
     accentColor: 'indigo',
     cta: 'Discovery Call',
   },
   {
     icon: Wrench,
-    title: 'Custom Solutions — Nicho',
-    description: 'Turismo, logística, marina, eventos. Construimos el software que el software genérico nunca termina de cubrir. Con TravelorHub y Evinra como prueba de concepto.',
+    title: 'Custom Solutions — Niche',
+    description: 'Tourism, logistics, marine, events. We build the software that generic tools never fully cover. TravelorHub and Evinra are our proof of concept.',
     price: '$5K – $15K',
-    tag: 'Industrias específicas',
+    tag: 'Industry-specific',
     accentColor: 'emerald',
     cta: 'Start Your Project',
   },
   {
     icon: Zap,
-    title: 'Automatización de Operaciones',
-    description: 'Identificamos los 3 procesos que más tiempo te roban y los automatizamos. Workflows, integraciones entre sistemas, dashboards y herramientas internas.',
+    title: 'Operations Automation',
+    description: 'We identify the 3 processes that steal the most of your time and automate them. Workflows, system integrations, dashboards, and internal tools.',
     price: '$3K – $10K',
-    tag: 'Free Audit incluido',
+    tag: 'Free Audit included',
     accentColor: 'amber',
     cta: 'Free Audit',
   },
   {
     icon: BookOpen,
-    title: 'Consulting Estratégico',
-    description: 'Una sesión de 60 min para saber qué construir, en qué orden y a qué costo antes de invertir en desarrollo. Epicor ERP, EDI y arquitectura de producto.',
+    title: 'Strategic Consulting',
+    description: 'A 60-minute session to know what to build, in what order, and at what cost — before investing in development. Epicor ERP, EDI, and product architecture.',
     price: '$1.5K – $5K',
-    tag: 'Puerta de entrada',
+    tag: 'Entry point',
     accentColor: 'purple',
     cta: 'Strategy Call',
   },
@@ -55,7 +55,7 @@ export default function ServicesSection() {
               viewport={{ once: true }}
               className="text-sm font-display font-semibold text-indigo-mid uppercase tracking-widest mb-4"
             >
-              Servicios
+              Services
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
@@ -65,9 +65,9 @@ export default function ServicesSection() {
               className="font-display font-extrabold text-white leading-tight"
               style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)', letterSpacing: '-0.025em' }}
             >
-              Cuatro servicios.
+              Four services.
               <br />
-              <span className="text-white/40">Una dirección.</span>
+              <span className="text-white/40">One direction.</span>
             </motion.h2>
           </div>
           <motion.p
@@ -77,7 +77,7 @@ export default function ServicesSection() {
             transition={{ delay: 0.2 }}
             className="font-body text-gray-mid max-w-md text-right hidden lg:block"
           >
-            No hacemos todo. Hacemos bien las cuatro cosas que mayor impacto tienen en cómo opera y escala tu negocio.
+            We don't do everything. We do four things well — the ones with the highest impact on how your business operates and scales.
           </motion.p>
         </div>
 
@@ -102,7 +102,7 @@ export default function ServicesSection() {
           transition={{ delay: 0.5 }}
           className="mt-8 text-center text-xs font-body text-gray-mid/50"
         >
-          No hacemos mantenimiento WordPress básico, diseño gráfico standalone ni SEO aislado. Esos no son nuestros mejores resultados.
+          We don't do basic WordPress maintenance, standalone graphic design, or isolated SEO. Those aren't where we get the best results.
         </motion.p>
       </div>
     </SectionWrapper>
