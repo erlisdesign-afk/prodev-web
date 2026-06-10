@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Zap, ArrowRight, TrendingUp, Clock } from 'lucide-react';
 import CTAButton from '../ui/CTAButton';
+import { AuroraBackground } from '../ui/aurora-background';
 
 const headline = ['We Build', 'the software', 'that runs your business.'];
 
@@ -45,16 +46,10 @@ export default function HeroSection() {
   const ref = useRef(null);
 
   return (
-    <section
-      ref={ref}
-      className="relative min-h-screen flex flex-col justify-center px-6 pt-24 pb-16 overflow-hidden"
+    <AuroraBackground
+      className="dark min-h-screen flex-col justify-center px-6 pt-24 pb-16 bg-bg text-white"
+      showRadialGradient
     >
-      {/* Ambient blobs */}
-      <div className="absolute top-0 right-0 w-[700px] h-[700px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, rgba(61,32,160,0.18) 0%, transparent 65%)', transform: 'translate(20%, -20%)' }} />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] rounded-full pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, rgba(45,201,126,0.12) 0%, transparent 65%)', transform: 'translate(-20%, 20%)' }} />
-
       {/* SVG grid texture */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.025 }} xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -259,6 +254,6 @@ export default function HeroSection() {
           className="w-px h-8 bg-gradient-to-b from-gray-mid/40 to-transparent"
         />
       </motion.div>
-    </section>
+    </AuroraBackground>
   );
 }

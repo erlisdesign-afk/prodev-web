@@ -1,6 +1,11 @@
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+const flattenColorPalette = require("tailwindcss/lib/util/flattenColorPalette").default;
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -62,11 +67,18 @@ export default {
         'pulse-slow':  'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'float':       'float 6s ease-in-out infinite',
         'spin-slow':   'spin 20s linear infinite',
+        // Aurora
+        aurora: 'aurora 60s linear infinite',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%':      { transform: 'translateY(-12px)' },
+        },
+        // Aurora keyframe
+        aurora: {
+          from: { backgroundPosition: '50% 50%, 50% 50%' },
+          to:   { backgroundPosition: '350% 50%, 350% 50%' },
         },
       },
       boxShadow: {
@@ -77,5 +89,17 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [addVariablesForColors],
 };
+
+// Adds all Tailwind colors as CSS variables — required by the Aurora animation
+// e.g. var(--blue-500), var(--indigo-300), var(--transparent), var(--white), var(--black)
+function addVariablesForColors({ addBase, theme }) {
+  const allColors = flattenColorPalette(theme('colors'));
+  const newVars = Object.fromEntries(
+    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+  );
+  addBase({
+    ':root': newVars,
+  });
+}
