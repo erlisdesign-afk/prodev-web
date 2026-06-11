@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext, useContext } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import HeroSection from './components/sections/HeroSection';
@@ -8,43 +8,37 @@ import ServicesSection from './components/sections/ServicesSection';
 import HowItWorksSection from './components/sections/HowItWorksSection';
 import PersonasSection from './components/sections/PersonasSection';
 import CTASection from './components/sections/CTASection';
+import ConsultingSection from './components/sections/ConsultingSection';
+import TestimonialsSection from './components/sections/TestimonialsSection';
+import ContactPage from './pages/ContactPage';
 
-export const ThemeContext = createContext({ dark: true, toggle: () => {} });
-export const useTheme = () => useContext(ThemeContext);
+function HomePage() {
+  return (
+    <main>
+      <HeroSection />
+      <ProblemSection />
+      <ProductsSection />
+      <ServicesSection />
+      <ConsultingSection />
+      <HowItWorksSection />
+      <PersonasSection />
+      <TestimonialsSection />
+      <CTASection />
+    </main>
+  );
+}
 
 export default function App() {
-  const [dark, setDark] = useState(() => {
-    const saved = localStorage.getItem('prodev-theme');
-    return saved ? saved === 'dark' : true; // default: dark
-  });
-
-  useEffect(() => {
-    const html = document.documentElement;
-    if (dark) {
-      html.classList.add('dark');
-    } else {
-      html.classList.remove('dark');
-    }
-    localStorage.setItem('prodev-theme', dark ? 'dark' : 'light');
-  }, [dark]);
-
-  const toggle = () => setDark((d) => !d);
-
   return (
-    <ThemeContext.Provider value={{ dark, toggle }}>
+    <BrowserRouter>
       <div className="min-h-screen antialiased" style={{ backgroundColor: 'var(--color-bg)', color: 'var(--color-text)' }}>
         <Navbar />
-        <main>
-          <HeroSection />
-          <ProblemSection />
-          <ProductsSection />
-          <ServicesSection />
-          <HowItWorksSection />
-          <PersonasSection />
-          <CTASection />
-        </main>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
         <Footer />
       </div>
-    </ThemeContext.Provider>
+    </BrowserRouter>
   );
 }

@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import CTAButton from '../ui/CTAButton';
-import ThemeToggle from '../ui/theme-toggle';
-import { useTheme } from '../../App';
 
 const links = [
   { label: 'Products',     href: '#productos' },
@@ -15,7 +14,6 @@ const links = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen]         = useState(false);
-  const { dark, toggle }        = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -37,12 +35,12 @@ export default function Navbar() {
       >
         <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between gap-8">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5 flex-shrink-0">
+          <Link to="/" className="flex items-center gap-2.5 flex-shrink-0">
             <img src="/logo-icon.png" alt="ProDev" className="h-8 w-8 object-contain rounded-lg" />
-            <span className="font-display font-extrabold text-[1.1rem] tracking-tight">
+            <span className="font-display font-extrabold text-[1.1rem] tracking-tight text-navy">
               PRODEV
             </span>
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-1 flex-1 justify-center">
@@ -50,33 +48,31 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="px-4 py-2 text-sm font-body text-[var(--color-text-muted)] hover:text-[var(--color-text)] rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-all duration-150"
+                className="px-4 py-2 text-sm font-body text-[var(--color-text-muted)] hover:text-[var(--color-text)] rounded-lg hover:bg-black/5 transition-all duration-150"
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          {/* Desktop CTA + ThemeToggle */}
+          {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-3">
-            <ThemeToggle dark={dark} onToggle={toggle} />
-            <a
-              href="#contacto"
+            <Link
+              to="/contact"
               className="text-sm font-body text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
             >
               Contact
-            </a>
+            </Link>
             <CTAButton href="#audit" size="sm" variant="emerald">
               Free Audit
             </CTAButton>
           </div>
 
           {/* Mobile toggle */}
-          <div className="md:hidden flex items-center gap-2">
-            <ThemeToggle dark={dark} onToggle={toggle} />
+          <div className="md:hidden">
             <button
               onClick={() => setOpen(!open)}
-              className="p-2 rounded-lg text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-black/5 dark:hover:bg-white/5 transition-all"
+              className="p-2 rounded-lg text-[var(--color-text-muted)] hover:text-[var(--color-text)] hover:bg-black/5 transition-all"
               aria-label="Toggle menu"
             >
               {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -106,6 +102,13 @@ export default function Navbar() {
                   {link.label}
                 </a>
               ))}
+              <Link
+                to="/contact"
+                onClick={() => setOpen(false)}
+                className="py-3 text-base font-body text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
+              >
+                Contact
+              </Link>
               <div className="pt-4">
                 <CTAButton href="#audit" variant="emerald" className="w-full justify-center">
                   Free Automation Audit

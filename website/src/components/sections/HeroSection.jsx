@@ -45,10 +45,10 @@ export default function HeroSection() {
   const ref = useRef(null);
 
   return (
-    <AuroraBackground
-      className="min-h-screen flex-col justify-center px-6 pt-24 pb-16"
-      showRadialGradient
-    >
+    <AuroraBackground showRadialGradient>
+      {/* content wrapper — pt-16 clears fixed navbar (h-16), pt-24 adds breathing room */}
+      <div className="relative flex flex-col min-h-screen px-6 pt-24 pb-16 justify-center">
+
       {/* SVG grid texture */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.025 }} xmlns="http://www.w3.org/2000/svg">
         <defs>
@@ -59,7 +59,7 @@ export default function HeroSection() {
         <rect width="100%" height="100%" fill="url(#grid)" />
       </svg>
 
-      <div className="relative max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center z-10">
         {/* Left — copy */}
         <div>
           {/* Badge */}
@@ -100,10 +100,10 @@ export default function HeroSection() {
             transition={{ delay: 1.5, duration: 0.5 }}
             className="flex flex-wrap gap-3 mb-12"
           >
-            <CTAButton href="#audit" variant="emerald" size="lg" icon={<Zap className="w-4 h-4" />}>
+            <CTAButton href="#audit" variant="emerald" size="xl" icon={<Zap className="w-5 h-5" />}>
               Free Automation Audit
             </CTAButton>
-            <CTAButton href="#servicios" variant="ghost" size="lg" icon={<ArrowRight className="w-4 h-4" />}>
+            <CTAButton href="#servicios" variant="ghost" size="xl" icon={<ArrowRight className="w-5 h-5" />}>
               See services
             </CTAButton>
           </motion.div>
@@ -237,13 +237,15 @@ export default function HeroSection() {
         transition={{ delay: 2.2 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
       >
-        <span className="text-[10px] font-display font-semibold tracking-widest text-gray-mid/40 uppercase">Scroll</span>
+        <span className="text-[10px] font-display font-semibold tracking-widest uppercase" style={{ color: 'var(--color-text-muted)', opacity: 0.5 }}>Scroll</span>
         <motion.div
           animate={{ scaleY: [1, 1.6, 1], opacity: [0.4, 1, 0.4] }}
           transition={{ repeat: Infinity, duration: 1.6 }}
-          className="w-px h-8 bg-gradient-to-b from-gray-mid/40 to-transparent"
+          className="w-px h-8 bg-gradient-to-b from-indigo-DEFAULT to-transparent"
         />
       </motion.div>
+
+      </div>
     </AuroraBackground>
   );
 }

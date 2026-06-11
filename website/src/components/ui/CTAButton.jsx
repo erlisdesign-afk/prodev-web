@@ -13,26 +13,26 @@ export default function CTAButton({
   ...props
 }) {
   const base =
-    'relative inline-flex items-center justify-center gap-2.5 font-display font-semibold rounded-xl transition-colors duration-200 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-DEFAULT focus-visible:ring-offset-2 focus-visible:ring-offset-bg disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden';
+    'relative inline-flex items-center justify-center gap-2.5 font-display font-semibold rounded-xl transition-colors duration-200 select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-DEFAULT focus-visible:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed overflow-hidden';
 
   const variants = {
     primary:
       'bg-indigo-DEFAULT text-white hover:bg-indigo-dark border border-indigo-DEFAULT/50',
     emerald:
-      'bg-emerald text-[#090910] hover:bg-emerald-dark border border-emerald/50',
+      'bg-emerald text-white hover:bg-emerald-dark border border-emerald/50 shadow-sm',
     ghost:
-      'bg-transparent text-white border border-border hover:border-indigo-mid/60 hover:bg-indigo-DEFAULT/10',
+      'bg-white/70 text-navy border border-[#D8DAEE] hover:bg-indigo-DEFAULT/10 hover:border-indigo-DEFAULT/40 hover:text-indigo-DEFAULT backdrop-blur-sm',
     amber:
-      'bg-amber text-[#090910] hover:bg-amber-dark border border-amber/50',
+      'bg-amber text-white hover:bg-amber-dark border border-amber/50',
     outline:
-      'bg-transparent text-indigo-mid border border-indigo-DEFAULT/50 hover:bg-indigo-DEFAULT/10 hover:text-white',
+      'bg-transparent text-indigo-DEFAULT border border-indigo-DEFAULT/50 hover:bg-indigo-DEFAULT/10',
   };
 
   const sizes = {
-    sm:  'px-4 py-2.5 text-sm',
-    md:  'px-6 py-3.5 text-[0.9375rem]',
-    lg:  'px-8 py-4.5 text-base',
-    xl:  'px-10 py-5 text-lg',
+    sm:  'px-5 py-2.5 text-sm',
+    md:  'px-7 py-3.5 text-[0.9375rem]',
+    lg:  'px-9 py-4 text-base',
+    xl:  'px-12 py-5 text-lg',
   };
 
   const classes = `${base} ${variants[variant]} ${sizes[size]} ${className}`;
@@ -45,9 +45,8 @@ export default function CTAButton({
 
   const content = (
     <>
-      {/* Shimmer on hover */}
       <motion.span
-        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.07] to-transparent -translate-x-full"
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.12] to-transparent -translate-x-full"
         whileHover={{ x: '200%' }}
         transition={{ duration: 0.6, ease: 'easeInOut' }}
       />
