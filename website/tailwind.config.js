@@ -17,6 +17,8 @@ export default {
           dark:    '#2A1470',
           50:  '#EEE9F9',
           100: '#D8CEFF',
+          200: '#C4B3F0',
+          300: '#a5b4fc', // Standard Tailwind indigo-300 — required by aurora CSS var
           400: '#8B6AE8',
           500: '#5B38C8',
           600: '#3D20A0',
@@ -41,12 +43,12 @@ export default {
         slate:     '#3A3D4D',
         'gray-mid':'#6B7280',
         'off-white':'#F8F8F8',
-        // Site-specific tokens
-        bg:        '#090910',
-        'bg-card': '#0F0F1A',
-        'bg-elevated': '#14141F',
-        border:    '#1E1E2E',
-        'border-subtle': '#16162A',
+        // Site tokens — backed by CSS variables so light/dark mode works
+        // without touching individual components
+        bg:          'var(--color-bg)',
+        'bg-card':   'var(--color-bg-card)',
+        'bg-elevated':'var(--color-bg-elevated)',
+        border:      'var(--color-border)',
       },
       fontFamily: {
         display: ['"Plus Jakarta Sans"', 'sans-serif'],
@@ -61,21 +63,18 @@ export default {
         'gradient-brand': 'linear-gradient(135deg, #3D20A0 0%, #2DC97E 100%)',
         'gradient-hero':  'radial-gradient(ellipse 80% 60% at 60% 40%, rgba(61,32,160,0.25) 0%, transparent 70%)',
         'gradient-glow-green': 'radial-gradient(ellipse 60% 50% at 30% 60%, rgba(45,201,126,0.12) 0%, transparent 70%)',
-        'noise': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E\")",
       },
       animation: {
-        'pulse-slow':  'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'float':       'float 6s ease-in-out infinite',
-        'spin-slow':   'spin 20s linear infinite',
-        // Aurora
-        aurora: 'aurora 60s linear infinite',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'float':      'float 6s ease-in-out infinite',
+        'spin-slow':  'spin 20s linear infinite',
+        aurora:       'aurora 60s linear infinite',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%':      { transform: 'translateY(-12px)' },
         },
-        // Aurora keyframe
         aurora: {
           from: { backgroundPosition: '50% 50%, 50% 50%' },
           to:   { backgroundPosition: '350% 50%, 350% 50%' },
@@ -92,14 +91,14 @@ export default {
   plugins: [addVariablesForColors],
 };
 
-// Adds all Tailwind colors as CSS variables — required by the Aurora animation
-// e.g. var(--blue-500), var(--indigo-300), var(--transparent), var(--white), var(--black)
+// Adds every Tailwind color as a CSS variable — required by Aurora
+// e.g. var(--blue-500), var(--indigo-300), var(--transparent), var(--white)
 function addVariablesForColors({ addBase, theme }) {
   const allColors = flattenColorPalette(theme('colors'));
   const newVars = Object.fromEntries(
-    Object.entries(allColors).map(([key, val]) => [`--${key}`, val])
+    Object.entries(allColors)
+      .filter(([, val]) => typeof val === 'string')
+      .map(([key, val]) => [`--${key}`, val])
   );
-  addBase({
-    ':root': newVars,
-  });
+  addBase({ ':root': newVars });
 }

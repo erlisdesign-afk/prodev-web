@@ -3,8 +3,7 @@ import { motion } from 'framer-motion';
 import { Zap, ArrowRight, TrendingUp, Clock } from 'lucide-react';
 import CTAButton from '../ui/CTAButton';
 import { AuroraBackground } from '../ui/aurora-background';
-
-const headline = ['We Build', 'the software', 'that runs your business.'];
+import AnimatedHeroHeadline from '../ui/animated-headline';
 
 const subWords = 'Your manual operation — automated, scaled, running on its own.'.split(' ');
 
@@ -47,7 +46,7 @@ export default function HeroSection() {
 
   return (
     <AuroraBackground
-      className="dark min-h-screen flex-col justify-center px-6 pt-24 pb-16 bg-bg text-white"
+      className="min-h-screen flex-col justify-center px-6 pt-24 pb-16"
       showRadialGradient
     >
       {/* SVG grid texture */}
@@ -74,24 +73,15 @@ export default function HeroSection() {
             Software that runs real businesses
           </motion.div>
 
-          {/* Headline */}
-          <motion.h1
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="font-display font-extrabold leading-none mb-6 select-none"
-            style={{ fontSize: 'clamp(2.5rem, 7vw, 5.5rem)', letterSpacing: '-0.04em' }}
+          {/* Headline — animated cycling */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] }}
+            className="mb-6"
           >
-            <motion.span variants={lineVariant} className="block text-white">
-              {headline[0]}
-            </motion.span>
-            <motion.span variants={lineVariant} className="block text-gradient-brand">
-              {headline[1]}
-            </motion.span>
-            <motion.span variants={lineVariant} className="block text-white">
-              {headline[2]}
-            </motion.span>
-          </motion.h1>
+            <AnimatedHeroHeadline interval={3000} />
+          </motion.div>
 
           {/* Animated sub */}
           <p className="font-body text-lg text-gray-mid leading-relaxed mb-10 max-w-lg">
