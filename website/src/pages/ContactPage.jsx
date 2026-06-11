@@ -4,18 +4,20 @@ import { Mail, Phone, MapPin, Send, CheckCircle2 } from 'lucide-react';
 import CTAButton from '../components/ui/CTAButton';
 
 const contactInfo = [
-  { icon: Mail,    label: 'Email',    value: 'hello@prodevsolution.com', href: 'mailto:hello@prodevsolution.com' },
-  { icon: Phone,   label: 'Phone',   value: '+1 (555) 000-0000',         href: 'tel:+15550000000' },
-  { icon: MapPin,  label: 'Location', value: 'United States',            href: null },
+  { icon: MapPin, label: 'Address', value: '3230 Southgate Cir Suite #138, Sarasota, FL 34239', href: null },
+  { icon: Phone, label: 'Phone', value: '786-325-7738', href: 'tel:7863257738' },
+  { icon: Mail, label: 'Email', value: 'info@prodevsolution.com', href: 'mailto:info@prodevsolution.com' },
 ];
 
 const services = [
   'Custom SaaS / MVP development',
-  'Operations automation',
-  'Epicor ERP implementation',
-  'EDI integration',
-  'Evinra — events platform',
-  'TravelorHub — booking platform',
+  'Booking platform development',
+  'Customer portal development',
+  'Business process automation',
+  'Epicor ERP consulting',
+  'EDI consulting',
+  'Evinra — request a demo',
+  'TravelorHub — request a demo',
   'Other',
 ];
 
@@ -27,13 +29,13 @@ export default function ContactPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // In production wire to an API / form service
     setSent(true);
   };
 
   return (
     <div className="min-h-screen pt-24 pb-16 px-6" style={{ background: 'var(--color-bg)' }}>
       <div className="max-w-5xl mx-auto">
+
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
@@ -42,17 +44,18 @@ export default function ContactPage() {
           className="mb-16"
         >
           <span className="inline-block px-4 py-1.5 rounded-full border border-[var(--color-border)] text-xs font-display font-semibold uppercase tracking-widest mb-5" style={{ color: 'var(--color-text-muted)' }}>
-            Let's talk
+            Let's map your next software opportunity
           </span>
           <h1 className="font-display font-extrabold text-5xl md:text-6xl tracking-tight mb-4" style={{ color: 'var(--color-text)' }}>
             Start a project
           </h1>
           <p className="font-body text-lg max-w-lg" style={{ color: 'var(--color-text-muted)' }}>
-            Tell us what you're building. We'll respond within one business day with a scope recommendation and a fixed-price proposal.
+            Tell us if you need a product demo, a custom solution, Epicor/EDI consulting or an automation audit. We reply from info@prodevsolution.com — or call 786 325-7738.
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-12">
+
           {/* Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -76,18 +79,14 @@ export default function ContactPage() {
                 <Field label="Company" name="company" type="text" value={form.company} onChange={handleChange} />
                 <div className="flex flex-col gap-1.5">
                   <label className="font-display font-semibold text-sm" style={{ color: 'var(--color-text)' }}>
-                    Service
+                    What do you need?
                   </label>
                   <select
                     name="service"
                     value={form.service}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-xl border font-body text-sm focus:outline-none focus:ring-2 focus:ring-indigo-DEFAULT/50"
-                    style={{
-                      background: 'var(--color-bg-card)',
-                      borderColor: 'var(--color-border)',
-                      color: 'var(--color-text)',
-                    }}
+                    style={{ background: 'var(--color-bg-card)', borderColor: 'var(--color-border)', color: 'var(--color-text)' }}
                   >
                     <option value="">Select a service…</option>
                     {services.map((s) => <option key={s}>{s}</option>)}
@@ -105,11 +104,7 @@ export default function ContactPage() {
                     required
                     placeholder="Describe what you need and your timeline…"
                     className="w-full px-4 py-3 rounded-xl border font-body text-sm focus:outline-none focus:ring-2 focus:ring-indigo-DEFAULT/50 resize-none"
-                    style={{
-                      background: 'var(--color-bg-card)',
-                      borderColor: 'var(--color-border)',
-                      color: 'var(--color-text)',
-                    }}
+                    style={{ background: 'var(--color-bg-card)', borderColor: 'var(--color-border)', color: 'var(--color-text)' }}
                   />
                 </div>
                 <CTAButton type="submit" variant="primary" size="lg" icon={<Send className="w-4 h-4" />}>
@@ -124,12 +119,9 @@ export default function ContactPage() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="flex flex-col gap-8"
+            className="flex flex-col gap-6"
           >
-            <div
-              className="rounded-2xl border p-8"
-              style={{ background: 'var(--color-bg-card)', borderColor: 'var(--color-border)' }}
-            >
+            <div className="rounded-2xl border p-8" style={{ background: 'var(--color-bg-card)', borderColor: 'var(--color-border)' }}>
               <h3 className="font-display font-bold text-xl mb-6" style={{ color: 'var(--color-text)' }}>
                 Contact info
               </h3>
@@ -152,19 +144,22 @@ export default function ContactPage() {
               </ul>
             </div>
 
-            <div
-              className="rounded-2xl border p-8"
-              style={{ background: 'rgba(45,201,126,0.06)', borderColor: 'rgba(45,201,126,0.2)' }}
-            >
+            <div className="rounded-2xl border p-8" style={{ background: 'rgba(45,201,126,0.06)', borderColor: 'rgba(45,201,126,0.2)' }}>
               <h3 className="font-display font-bold text-lg mb-3" style={{ color: 'var(--color-text)' }}>
-                Free Automation Audit
+                Prefer to talk?
               </h3>
               <p className="font-body text-sm leading-relaxed mb-5" style={{ color: 'var(--color-text-muted)' }}>
-                Not sure where to start? Book a 30-minute call and we'll map out which processes in your operation can be automated first — no pitch, just a plan.
+                Book a 30-minute strategy call and we'll map your product, platform or automation opportunity — no pitch, just a plan.
               </p>
-              <CTAButton href="mailto:hello@prodevsolution.com?subject=Free%20Automation%20Audit" variant="emerald" size="md">
-                Book a free audit call
+              <CTAButton href="mailto:info@prodevsolution.com?subject=Strategy%20Call%20Request" variant="emerald" size="md">
+                Pick a time — email us
               </CTAButton>
+            </div>
+
+            <div className="rounded-2xl border p-6" style={{ background: 'var(--color-bg-card)', borderColor: 'var(--color-border)' }}>
+              <p className="font-body text-sm" style={{ color: 'var(--color-text-muted)' }}>
+                <strong className="font-display" style={{ color: 'var(--color-text)' }}>ProDev Solution LLC</strong> — Sarasota, FL · Serving US clients remotely · 4.6★ on Google
+              </p>
             </div>
           </motion.div>
         </div>
@@ -186,11 +181,7 @@ function Field({ label, name, type, value, onChange, required }) {
         onChange={onChange}
         required={required}
         className="w-full px-4 py-3 rounded-xl border font-body text-sm focus:outline-none focus:ring-2 focus:ring-indigo-DEFAULT/50"
-        style={{
-          background: 'var(--color-bg-card)',
-          borderColor: 'var(--color-border)',
-          color: 'var(--color-text)',
-        }}
+        style={{ background: 'var(--color-bg-card)', borderColor: 'var(--color-border)', color: 'var(--color-text)' }}
       />
     </div>
   );

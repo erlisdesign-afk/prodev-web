@@ -3,40 +3,40 @@ import { Star } from 'lucide-react';
 
 const testimonials = [
   {
-    name: 'Carlos M.',
-    role: 'COO, King Boatworks',
+    name: 'Tom',
+    role: 'King Boatworks',
     initials: 'KB',
     color: '#8B6AE8',
-    quote:
-      'ProDev cut our operations processing time by 67%. What used to take our team three hours a day now runs automatically overnight. Implementation was clean and the team communicated every step.',
+    quote: 'We build custom boats — ProDev built our sales platform around the way we actually sell: the models, real inventory, financing and demo rides. The leads that come in now arrive ready for a real conversation.',
     stars: 5,
+    source: 'Client',
   },
   {
-    name: 'Andrea R.',
-    role: 'Director of Operations, HQT',
+    name: 'HQT Punta Cana',
+    role: 'Transfer Operations',
     initials: 'HQ',
     color: '#F0A030',
-    quote:
-      "We needed Epicor integrated with our EDI partners in six weeks. ProDev hit the deadline, certified all transaction sets, and left us documentation we can actually maintain ourselves.",
+    quote: 'Our day used to run on spreadsheets and phone calls. Now the TravelorHub transfer board is the single source of truth — reservations, drivers, balances and flight changes in one place. Our entire daily operation runs on the platform.',
     stars: 5,
+    source: 'Client',
   },
   {
-    name: 'Luis V.',
-    role: 'Founder, TravelorHub',
-    initials: 'TH',
-    color: '#2DC97E',
-    quote:
-      'They built the entire booking and transfer management platform from scratch. TravelorHub went live on schedule and handles hundreds of bookings daily without manual intervention.',
-    stars: 5,
-  },
-  {
-    name: 'Marta P.',
-    role: 'VP Technology, Evinra',
-    initials: 'E',
+    name: 'Dylan Clements',
+    role: 'CEO, TransAPPtions LLC',
+    initials: 'DC',
     color: '#3D20A0',
-    quote:
-      'The ticketing and event operations software ProDev built became the backbone of our platform. Solid architecture, zero downtime on launch day, and they still support us fast when we need changes.',
+    quote: 'Very satisfied with the company and the product. We chose to work with ProDev because Yoaldis asked all the right questions when we interviewed him. Excellent design skills, development talents, and easy to work with!',
     stars: 5,
+    source: 'Google',
+  },
+  {
+    name: 'Jorge Oquendo',
+    role: 'Wooden Shoes Childcare Center, Sarasota',
+    initials: 'JO',
+    color: '#2DC97E',
+    quote: 'Most of the users love the product ProDev Solution LLC created for us. All of the problems we have faced have been fixed in record time.',
+    stars: 5,
+    source: 'Google',
   },
 ];
 
@@ -45,7 +45,7 @@ const containerVariant = {
   visible: { transition: { staggerChildren: 0.12 } },
 };
 const cardVariant = {
-  hidden:  { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] } },
 };
 
@@ -53,7 +53,6 @@ export default function TestimonialsSection() {
   return (
     <section id="testimonials" className="py-24 px-6" style={{ background: 'var(--color-bg-elevated)' }}>
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +61,7 @@ export default function TestimonialsSection() {
           className="text-center mb-16"
         >
           <span className="inline-block px-4 py-1.5 rounded-full border border-[var(--color-border)] text-xs font-display font-semibold uppercase tracking-widest mb-4" style={{ color: 'var(--color-text-muted)' }}>
-            Client results
+            4.6★ on Google
           </span>
           <h2 className="font-display font-extrabold text-4xl md:text-5xl tracking-tight mb-4" style={{ color: 'var(--color-text)' }}>
             What clients say
@@ -72,7 +71,6 @@ export default function TestimonialsSection() {
           </p>
         </motion.div>
 
-        {/* Grid */}
         <motion.div
           variants={containerVariant}
           initial="hidden"
@@ -85,24 +83,25 @@ export default function TestimonialsSection() {
               key={t.name}
               variants={cardVariant}
               className="rounded-2xl border p-8 flex flex-col gap-5"
-              style={{
-                background: 'var(--color-bg-card)',
-                borderColor: 'var(--color-border)',
-              }}
+              style={{ background: 'var(--color-bg-card)', borderColor: 'var(--color-border)' }}
             >
-              {/* Stars */}
-              <div className="flex gap-1">
-                {Array.from({ length: t.stars }).map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-amber" style={{ color: '#F0A030' }} />
-                ))}
+              <div className="flex items-center justify-between">
+                <div className="flex gap-1">
+                  {Array.from({ length: t.stars }).map((_, i) => (
+                    <Star key={i} className="w-4 h-4" style={{ color: '#F0A030', fill: '#F0A030' }} />
+                  ))}
+                </div>
+                {t.source === 'Google' && (
+                  <span className="text-xs font-body px-2 py-0.5 rounded-full border" style={{ color: 'var(--color-text-muted)', borderColor: 'var(--color-border)' }}>
+                    Google Review
+                  </span>
+                )}
               </div>
 
-              {/* Quote */}
               <p className="font-body text-base leading-relaxed flex-1" style={{ color: 'var(--color-text)' }}>
                 &ldquo;{t.quote}&rdquo;
               </p>
 
-              {/* Author */}
               <div className="flex items-center gap-3">
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold font-display text-white flex-shrink-0"
